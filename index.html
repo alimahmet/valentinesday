@@ -3,16 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Will you be my Valentine?</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div>
-        <h2>Will you be my valentine?</h2>
+        <h2>Will you be my Valentine?</h2>
     </div>
-    <img src="https://scontent-den2-1.xx.fbcdn.net/v/t39.30808-6/476560552_122098472372765672_4225598424658922305_n.jpg?stp=cp6_dst-jpg_s1080x2048_tt6&_nc_cat=110&ccb=1-7&_nc_sid=127cfc&_nc_ohc=FlVQtaqNV28Q7kNvgGs7y0r&_nc_oc=AdjuLo2WEK60jOeUiHrrNt_z-yNJNkdwxGYIFpXpiWoqstIVA71xUzstiPlr1mmFwIg&_nc_zt=23&_nc_ht=scontent-den2-1.xx&_nc_gid=ArXhLKB7LgUicxOKNm23Aaj&oh=00_AYCVCuMnLIagAscYJwNznzkaafKXqTJ87-FFnkLPAozNeA&oe=67AF0585" alt="ali">
+    <img id="valentineImage" src="https://scontent-den2-1.xx.fbcdn.net/v/t39.30808-6/476560552_122098472372765672_4225598424658922305_n.jpg?stp=cp6_dst-jpg_s1080x2048_tt6&_nc_cat=110&ccb=1-7&_nc_sid=127cfc&_nc_ohc=FlVQtaqNV28Q7kNvgGs7y0r&_nc_oc=AdjuLo2WEK60jOeUiHrrNt_z-yNJNkdwxGYIFpXpiWoqstIVA71xUzstiPlr1mmFwIg&_nc_zt=23&_nc_ht=scontent-den2-1.xx&_nc_gid=ArXhLKB7LgUicxOKNm23Aaj&oh=00_AYCVCuMnLIagAscYJwNznzkaafKXqTJ87-FFnkLPAozNeA&oe=67AF0585" alt="ali">
     <button id="yesButton">Yes</button>
     <button id="no">No</button>
+
     <script>
         document.getElementById("yesButton").addEventListener("click", showAlert);
 
@@ -22,31 +23,36 @@
 
         var yesButton = document.getElementById("yesButton");
         var no = document.getElementById("no");
-        var valentineImage = document.getElementById("valentineImage");
 
-        var noTexts = ["Are you sure?", "Please give me a chance pookie", "Pookie please", "Don't do this to me :(", "You're breaking my heart", "I'm gonna cry"];
-        var imageSources = ["https://pbs.twimg.com/media/Fyk7XMnaEAI3PsB.jpg", "https://media.tenor.com/BP70qe8X0J8AAAAe/crycat-crying-cat.png", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9e71v7IfFLLS_1CfY2it3an-6XH1uROjTfU5c88AwRL8aRkqAYDmoFrm9gpbUqwNameo&usqp=CAU", "https://i.pinimg.com/736x/cb/d8/3b/cbd83b534a315e809a9da2b8cd3ac3bf.jpg"];
+        var noTexts = ["Are you sure?", "Please give me a chance", "pleaseeee", "Don't do this to me :(", "You're breaking my heart", "I'm gonna cry"];
 
         no.addEventListener("click", change);
 
         function change() {
             var randomIndex = Math.floor(Math.random() * noTexts.length);
-            var randomText = noTexts[randomIndex];
-            no.innerText = randomText;
+            no.innerText = noTexts[randomIndex];
 
-            var i = Math.floor(Math.random() * 1000) + 1;
-            var j = Math.floor(Math.random() * 700) + 1;
+            var screenWidth = window.innerWidth - no.offsetWidth - 20;
+            var screenHeight = window.innerHeight - no.offsetHeight - 20;
+
+            var i = Math.floor(Math.random() * screenWidth); 
+            var j = Math.floor(Math.random() * screenHeight);  
+
             no.style.left = i + "px";
             no.style.top = j + "px";
 
-            var currentWidth = yesButton.offsetWidth;
-            var currentHeight = yesButton.offsetHeight
-            yesButton.style.width = currentWidth + 30 + "px";
-            yesButton.style.height = currentHeight + 10 + "px";
+            var growX = Math.floor(2 * 30) - 15; // Randomly grow/shrink width
+            var growY = Math.floor(2 * 30) - 15; // Randomly grow/shrink height
 
-            var randomImageIndex = Math.floor(Math.random() * imageSources.length);
-            valentineImage.src = imageSources[randomImageIndex];
+            var newWidth = Math.max(yesButton.offsetWidth + growX, 50); // Min size 50px
+            var newHeight = Math.max(yesButton.offsetHeight + growY, 30); // Min size 30px
+
+            yesButton.style.width = newWidth + "px";
+            yesButton.style.height = newHeight + "px";
         }
     </script>
 </body>
 </html>
+
+
+

@@ -8,6 +8,7 @@ body {
     position: relative;
     margin: 0;
     padding: 0;
+    overflow: hidden; /* Prevents scrolling when button moves */
 }
 
 /* Заголовок */
@@ -39,8 +40,9 @@ img {
     color: #fff;
     border: none;
     cursor: pointer;
-    transition: transform 0.3s, background-color 0.3s;
+    transition: transform 0.3s, background-color 0.3s, width 0.3s, height 0.3s;
     border-radius: 8px;
+    z-index: 9999 !important; /* Ensuring buttons stay visible above everything */
 }
 
 /* Зеленая кнопка "Yes" */
@@ -48,6 +50,8 @@ img {
     background-color: #06d6a0;
     left: 50%;
     transform: translateX(-150px);
+    margin-left: -70px;
+    z-index: 3;
 }
 
 /* Красная кнопка "No" */
@@ -55,6 +59,11 @@ img {
     background-color: #ef476f;
     left: 50%;
     transform: translateX(30px);
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    margin-right: 5px;
+    z-index: 1;
 }
 
 /* 📱 Адаптивность для iPhone и других мобильных устройств */
@@ -78,10 +87,14 @@ img {
 
     #yesButton {
         transform: translateX(-130px);
+        margin-left: -70px;
+        z-index: 3;
     }
 
     #no {
         transform: translateX(20px);
+        margin-right: 5px;
+        z-index: 1;
     }
 }
 
@@ -105,10 +118,14 @@ img {
 
     #yesButton {
         transform: translateX(-120px);
+        margin-left: -70px;
+        z-index: 3;
     }
 
     #no {
         transform: translateX(15px);
+        margin-right: 5px;
+        z-index: 1;
     }
 }
 
@@ -132,10 +149,16 @@ img {
 
     #yesButton {
         transform: translateX(-110px);
+        margin-left: -70px;
+        z-index: 3;
+
     }
 
     #no {
         transform: translateX(10px);
+        margin-right: 5px;
+        z-index: 1;
     }
 }
+
 
