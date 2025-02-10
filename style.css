@@ -6,11 +6,13 @@ body {
     justify-content: center;
     height: 100vh;
     position: relative;
+    margin: 0;
+    padding: 0;
 }
 
+/* Заголовок */
 h2 {
     position: relative;
-    z-index: 2;
     color: #00225b;
     text-align: center;
     font-size: 26px;
@@ -18,15 +20,16 @@ h2 {
     margin-bottom: 10px;
 }
 
+/* Изображение */
 img {
     position: relative;
-    z-index: 1;
     max-height: 550px;
     max-width: 350px;
     display: block;
     margin: 0 auto;
 }
 
+/* Кнопки */
 #yesButton, #no {
     position: absolute;
     bottom: 140px;
@@ -36,17 +39,103 @@ img {
     color: #fff;
     border: none;
     cursor: pointer;
-    transition: transform 0.3s;
+    transition: transform 0.3s, background-color 0.3s;
+    border-radius: 8px;
 }
 
+/* Зеленая кнопка "Yes" */
 #yesButton {
     background-color: #06d6a0;
     left: 50%;
     transform: translateX(-150px);
 }
 
+/* Красная кнопка "No" */
 #no {
     background-color: #ef476f;
     left: 50%;
     transform: translateX(30px);
 }
+
+/* 📱 Адаптивность для iPhone и других мобильных устройств */
+@media screen and (max-width: 1170px) {
+    h2 {
+        font-size: 22px;
+        margin-bottom: 8px;
+    }
+
+    img {
+        max-width: 300px;
+        max-height: 500px;
+    }
+
+    #yesButton, #no {
+        width: 120px;
+        height: 40px;
+        font-size: 20px;
+        bottom: 120px;
+    }
+
+    #yesButton {
+        transform: translateX(-130px);
+    }
+
+    #no {
+        transform: translateX(20px);
+    }
+}
+
+/* 📱 iPhone 14 Pro и 15 Pro (1179 x 2556) */
+@media screen and (max-width: 1179px) {
+    h2 {
+        font-size: 20px;
+    }
+
+    img {
+        max-width: 280px;
+        max-height: 450px;
+    }
+
+    #yesButton, #no {
+        width: 110px;
+        height: 38px;
+        font-size: 18px;
+        bottom: 110px;
+    }
+
+    #yesButton {
+        transform: translateX(-120px);
+    }
+
+    #no {
+        transform: translateX(15px);
+    }
+}
+
+/* 📱 iPhone 16 Pro (1290 x 2796) */
+@media screen and (max-width: 1290px) {
+    h2 {
+        font-size: 18px;
+    }
+
+    img {
+        max-width: 260px;
+        max-height: 420px;
+    }
+
+    #yesButton, #no {
+        width: 100px;
+        height: 36px;
+        font-size: 16px;
+        bottom: 100px;
+    }
+
+    #yesButton {
+        transform: translateX(-110px);
+    }
+
+    #no {
+        transform: translateX(10px);
+    }
+}
+
